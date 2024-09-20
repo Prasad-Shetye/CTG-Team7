@@ -26,6 +26,17 @@ export const signUp = async (email, password, firstname, lastname) => {
   });
 };
 
+export const insertProfile = async (userId, email, fullName, type) => {
+  return await supabase.from("profiles").insert([
+    {
+      id: userId,
+      email: email,
+      full_name: fullName,
+      type: type,
+    },
+  ]);
+};
+
 export const getSession = () => {
     const userSessionData = localStorage.getItem("userSessionData");
     if (userSessionData) {
