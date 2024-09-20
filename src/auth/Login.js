@@ -1,8 +1,9 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   signInWithPassword,
-  signUp
+  signUp,
+  insertProfile
 } from "../providers/auth/login";
 import "./auth.css";
 
@@ -55,6 +56,35 @@ function Login({ handleLogIn }) {
         if (error) {
           console.error("Error signing up:", error);
           setDisplayError("User already exists.");
+        } else {
+
+
+          const capitalizeWords = (str) => {
+            return str
+              .toLowerCase() // Ensure the string is in lowercase
+              .split(" ") // Split the string into words
+              .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
+              .join(" "); // Join the words back into a single string
+          };
+
+          const user = data.user;
+
+          const { error: insertError } = await insertProfile(
+            user.id,
+            user.email,
+            capitalizeWords(firstname.concat(" ").concat(lastname)),
+            "Community Member"
+          );
+
+          if (insertError) {
+            console.error("Error adding profile:", insertError);
+            setDisplayError("Error creating user profile.");
+          } else {
+            setIsLogin(true);
+            setDisplayError("User registered successfully. Please login.");
+          }
+
+
         }
       }
     } catch (error) {
@@ -70,7 +100,7 @@ function Login({ handleLogIn }) {
   return (
     <div className={`login_signup`}>
       <div className="form_box">
-        <h2>{isLogin ? "Login" : "Register" }</h2>
+        <h2>{isLogin ? "Login" : "Register"}</h2>
         <form onSubmit={handleSubmit}>
           <div style={{ color: "pink" }}>{displayError}</div>
           {!isLogin && (
@@ -107,32 +137,32 @@ function Login({ handleLogIn }) {
             />
             <label htmlFor="Email">Email</label>
           </div>
-            <div className="form-group" style={{ position: "relative" }}>
-              <input
-                type={passwordVisible ? "text" : "password"}
-                value={password}
-                id="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-              <label htmlFor="Password">Password</label>
-              <div
-                onClick={togglePasswordVisibility}
-                style={{
-                  position: "absolute",
-                  right: "5px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  cursor: "pointer",
-                  color: "black",
-                }}
-              />
-            </div>
+          <div className="form-group" style={{ position: "relative" }}>
+            <input
+              type={passwordVisible ? "text" : "password"}
+              value={password}
+              id="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label htmlFor="Password">Password</label>
+            <div
+              onClick={togglePasswordVisibility}
+              style={{
+                position: "absolute",
+                right: "5px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                cursor: "pointer",
+                color: "black",
+              }}
+            />
+          </div>
           <button type="submit">
             {isLogin ? "SIGN-IN" : "REGISTER"}
           </button>
         </form>
-        <div onClick={() => {window.location.href = "/";}}  className="loginpage-right-back">
+        <div onClick={() => { window.location.href = "/"; }} className="loginpage-right-back">
           Back
         </div>
         <p className="loginText">

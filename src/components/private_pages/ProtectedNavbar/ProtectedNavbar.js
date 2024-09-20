@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./protectedNavbar.css";
 
-function ProtectedNavbar({handleLogOut}) {
+function ProtectedNavbar({handleLogOut, role}) {
   const navigate = useNavigate();
 
   function handleClick(url) {
@@ -12,6 +12,8 @@ function ProtectedNavbar({handleLogOut}) {
   return (
     <div className="navbar">
       CRP - Team 7
+      <br />
+      {role}
       <div className="navbar-buttons">
         <div
           onClick={() => {
