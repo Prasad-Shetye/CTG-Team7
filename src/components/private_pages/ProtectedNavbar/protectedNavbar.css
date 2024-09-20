@@ -1,0 +1,64 @@
+.navbar {
+  height: 10vh;
+  width: 100vw;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  z-index: 20;
+  top:0;
+  background-color: white;
+  max-height: 100px;
+}
+
+.navbar-buttons {
+  width: fit-content;
+  margin: 0;
+  height: 15vh;
+  max-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-button {
+  border: 1px solid #ff871c;
+  background-color: #ff871c;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Open Sans";
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+@property --myColor1 {
+  syntax: '<color>';
+  initial-value: #ff3131;
+  inherits: false;
+}
+
+@property --myColor2 {
+  syntax: '<color>';
+  initial-value: #ff914d;
+  inherits: false;
+}
+
+.navbar-button {
+  background: linear-gradient(to bottom right, var(--myColor1), var(--myColor2));
+  transition: --myColor1 0.2s, --myColor2 0.2s;
+}
+
+.navbar-button:hover {  
+  --myColor1: #ff914d;
+  --myColor2: #ff3131;
+}

@@ -1,0 +1,124 @@
+.loginpage {
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+}
+
+.loginpage-title {
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans';
+    font-size: 40px;
+    color: #FF871C;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+.loginpage-content {
+    height: fit-content;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.loginpage-left {
+    height: 60vh;
+    width: 40vw;
+}
+
+.loginpage-left-title {
+    font-family: 'Open Sans';
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    height: 10vh;
+}
+
+.loginpage-left-cards {
+    min-height: 50vh;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginpage-right {
+    min-height: 70vh;
+    height: fit-content;
+    margin: 5vh 0;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loginpage-right-back {
+    margin: 10px;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;;
+}
+
+@media (max-width: 768px) {
+    .loginpage-content {
+        flex-direction: column;
+        justify-content: start;
+    }
+
+    .loginpage-left {
+        width: 100%;
+    }
+
+    .loginpage-right {
+        width: 100%;
+        min-height: fit-content;
+    }
+
+}
+  
+@media (max-width: 475px) {
+    .loginpage-left-cards {
+        flex-direction: column;
+    }
+}
+  
+
+.corporate-temp {
+    font-family: 'Open Sans';
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.corporate-temp-back {
+    margin: 10px;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;;
+}
+
+.login-back {
+    margin: 10px 0;
+    font-family: 'Open Sans';
+    font-size: 15px;
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
