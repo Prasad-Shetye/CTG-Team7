@@ -1,15 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import './application.css';
 import ProtectedNavbar from '../ProtectedNavbar/ProtectedNavbar';
+import { fetchUserRole, fetchUserName } from '../../../providers/fetchUserData';
+import Events from '../Events/Events';
+import Broadcast from '../Broadcast/Broadcast';
+import Analytics from '../Analytics/Analytics';
 
 function Application({ handleLogOut }) {
   const [userId, setUserId] = useState(null);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const [selectedTab, setSelectedTab] = useState("Events");
+  const [userRole, setUserRole] = useState(null);
+  const [userName, setUserName] = useState(null);
 
-  function Loading() {
-    return <>Loading!</>;
+  // Fetch user data
+  async function getUserData() {
+    setUserRole(await fetchUserRole(userId))    
+    setUserName(await fetchUserName(userId))    
   }
 
   // Fetch user data from local storage
@@ -21,10 +27,19 @@ function Application({ handleLogOut }) {
     }
   }, []);
 
+  // If ID changes and is not null then fetch Role
+  useEffect(() => {
+    if(userId !== null) {
+      getUserData()
+    }
+  }, [userId])
+
   return (
     <div className="Application">
-      <ProtectedNavbar handleLogOut={handleLogOut} />
-      This is a protected route! Boo!
+      <ProtectedNavbar handleLogOut={handleLogOut} role={userRole} name={userName} selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
+      {selectedTab === "Events" && <Events />}
+      {selectedTab === "Broadcast Message" && <Broadcast />}
+      {selectedTab === "Analytics" && <Analytics />}
     </div>
   );
 }
