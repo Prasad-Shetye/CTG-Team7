@@ -28,3 +28,25 @@ export const fetchUserRole = async (userId) => {
     return {};
   }
 };
+
+// Function to fetch role for a given user ID
+export const fetchUserName = async (userId) => {
+  console.log(userId)
+  try {
+    const { data: userData, error: userDataError } = await supabase
+      .from('profiles')
+      .select('full_name')
+      .eq('id', userId);
+
+    if (userDataError) {
+      throw userDataError;
+    }
+    
+    console.log(userData);
+
+    return userData[0].full_name;
+  } catch (error) {
+    console.error('Error fetching user details:', error.message);
+    return {};
+  }
+};

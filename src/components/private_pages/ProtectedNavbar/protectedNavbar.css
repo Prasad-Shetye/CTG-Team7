@@ -1,6 +1,7 @@
-.navbar {
-  height: 10vh;
-  width: 100vw;
+.p-navbar {
+  height: 15vh;
+  width: 80vw;
+  padding: 0 10vw;
   border-bottom: 1px solid rgb(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
@@ -8,11 +9,36 @@
   position: sticky;
   z-index: 20;
   top:0;
-  background-color: white;
+  background-color: #eaeae8;
   max-height: 100px;
 }
 
-.navbar-buttons {
+.p-navbar-logo {
+  height: 7.5vh;
+  width: 15vw;
+  max-height: 100px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 30px;
+  color: #ff871c;
+  background: url("../../../assets/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.p-navbar-text {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 25px;
+  color: #5b445d
+}
+
+.p-navbar-buttons {
   width: fit-content;
   margin: 0;
   height: 15vh;
@@ -22,9 +48,8 @@
   align-items: center;
 }
 
-.navbar-button {
-  border: 1px solid #ff871c;
-  background-color: #ff871c;
+.p-navbar-button {
+  background-color: #6d3f63;
   height: fit-content;
   width: fit-content;
   border-radius: 15px;
@@ -41,24 +66,30 @@
   font-size: 12px;
 }
 
-@property --myColor1 {
+@property --myColo1 {
   syntax: '<color>';
-  initial-value: #ff3131;
+  initial-value: #6d3f63;
   inherits: false;
 }
 
-@property --myColor2 {
+@property --myColo2 {
   syntax: '<color>';
-  initial-value: #ff914d;
+  initial-value: #b79daf;
   inherits: false;
 }
 
-.navbar-button {
-  background: linear-gradient(to bottom right, var(--myColor1), var(--myColor2));
-  transition: --myColor1 0.2s, --myColor2 0.2s;
+.p-navbar-button {
+  background: linear-gradient(to bottom right, var(--myColo1), var(--myColo2));
+  transition: --myColo1 0.2s, --myColo2 0.2s;
 }
 
-.navbar-button:hover {  
-  --myColor1: #ff914d;
-  --myColor2: #ff3131;
+.p-navbar-button:hover {  
+  --myColo1: #b79daf;
+  --myColo2: #6d3f63;
+}
+
+.active {
+  background: transparent !important;
+  color: #5b445d;
+  border: 1px solid #b79daf;
 }

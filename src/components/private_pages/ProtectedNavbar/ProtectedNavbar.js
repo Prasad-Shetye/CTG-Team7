@@ -1,31 +1,49 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "./protectedNavbar.css";
 
-function ProtectedNavbar({handleLogOut, role}) {
-  const navigate = useNavigate();
-
-  function handleClick(url) {
-    navigate(`/${url}`);
-  }
+function ProtectedNavbar({ handleLogOut, role, name, selectedTab, setSelectedTab }) {
 
   return (
-    <div className="navbar">
-      CRP - Team 7
-      <br />
-      {role}
-      <div className="navbar-buttons">
+    <div className="p-navbar">
+      <div className="p-navbar-logo"></div>
+
+      <div className="p-navbar-buttons">
         <div
-          onClick={() => {
-            handleLogOut()
-          }}
-          className="navbar-button"
+          onClick={() => setSelectedTab('Events')}
+          className={`p-navbar-button ${selectedTab === 'Events' ? '' : 'active'}`}
+        >
+          Events
+        </div>
+
+        {role === "Admin" && (
+          <>
+            <div
+              onClick={() => setSelectedTab('Analytics')}
+              className={`p-navbar-button ${selectedTab === 'Analytics' ? '' : 'active'}`}
+            >
+              Analytics
+            </div>
+            <div
+              onClick={() => setSelectedTab('Broadcast Message')}
+              className={`p-navbar-button ${selectedTab === 'Broadcast Message' ? '' : 'active'}`}
+            >
+              Broadcast Message
+            </div>
+          </>
+        )}
+
+        <div
+          onClick={handleLogOut}
+          className="active p-navbar-button"
         >
           Log Out
         </div>
       </div>
+
+      <div className="p-navbar-text">
+        Welcome, {name}
+      </div>
     </div>
-      
   );
 }
 
