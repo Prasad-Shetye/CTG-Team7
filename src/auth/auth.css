@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: var(--font-size-m); /* Base font size */
+  font-size: var(--font-size-m);
   transition: transform 0.6s ease-in-out;
 }
 
@@ -27,10 +27,10 @@
 }
 
 .login_signup .form_box {
-  background-color: white; /* White container */
+  background-color: white;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Shadow effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,12 +38,13 @@
   max-width: 400px;
   font-size: var(--font-size-m);
   transform-style: preserve-3d;
-  position: relative; /* Ensure correct positioning */
+  position: relative;
 }
 
-.loginText{
-  font-family: 'Open Sans';
+.loginText {
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
+  margin-top: 20px;
 }
 
 .login_signup .form_box form {
@@ -56,8 +57,8 @@
 
 .login_signup .form-group {
   position: relative;
-  margin: 10px 0; /* Adjust margin */
-  width: 100%; /* Adjust width */
+  margin: 10px 0;
+  width: 100%;
   display: flex;
   align-items: center;
 }
@@ -68,7 +69,7 @@
   outline: none;
   padding: 10px;
   width: 100%;
-  border-bottom: 1px solid #888888; /* Adjust border color */
+  border-bottom: 1px solid #888888;
   color: #444;
   font-size: var(--font-size-m);
 }
@@ -94,30 +95,6 @@
   border-bottom: 2px solid black;
 }
 
-.login_signup .form-group .forgot_password button {
-  margin-top: 10px;
-  color: #888888;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.login_signup form button {
-  background: orange; /* Orange button color */
-  padding: 12px 20px;
-  border-radius: 15px;
-  border: none;
-  color: white;
-  font-weight: 700;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-  font-size: 15px; /* Button font size */
-}
-
-
 @property --myColor1 {
   syntax: '<color>';
   initial-value: #ff3131;
@@ -130,31 +107,55 @@
   inherits: false;
 }
 
-.login_signup form button  {
+.login_signup form button,
+.login_signup p button,
+.loginpage-right-back {
   background: linear-gradient(to bottom right, var(--myColor1), var(--myColor2));
-  transition: --myColor1 0.2s, --myColor2 0.2s;
+  padding: 12px 20px;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  font-weight: 700;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: --myColor1 0.2s, --myColor2 0.2s, transform 0.3s, box-shadow 0.3s;
+  width: 100%;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.login_signup form button:hover {  
+.login_signup form button:hover,
+.login_signup p button:hover,
+.loginpage-right-back:hover {
   --myColor1: #ff914d;
   --myColor2: #ff3131;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .login_signup p button {
-  border: none;
-  background: none;
-  color: blue;
-  text-decoration: underline;
-  font-family: 'Open Sans';
-  cursor: pointer;
-  font-size: 15px;
-  margin-top: 20px
+  display: inline-block;
+  width: auto;
+  margin-top: 10px;
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+.loginpage-right-back {
+  text-align: center;
+  display: inline-block;
+  width: auto;
+  margin-top: 20px;
+  padding: 8px 15px;
+  font-size: 14px;
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
   .login_signup {
-    font-size: 16px; /* Adjusted base font size */
+    font-size: 16px;
   }
 
   .login_signup .form_box form {
@@ -168,7 +169,7 @@
 
 @media (max-width: 768px) {
   .login_signup {
-    font-size: 14px; /* Adjusted base font size */
+    font-size: 14px;
   }
 
   .login_signup .form_box form {
@@ -183,7 +184,7 @@
 
 @media (max-width: 480px) {
   .login_signup {
-    font-size: 12px; /* Adjusted base font size */
+    font-size: 12px;
   }
   .login_signup .form_box {
     width: 75vw;
