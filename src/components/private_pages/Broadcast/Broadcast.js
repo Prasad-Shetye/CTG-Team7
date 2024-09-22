@@ -4,6 +4,7 @@ import { getAIDraft } from '../../../providers/ai/generateBroadcast';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { postEventData } from '../../../providers/eventDataSupabase';
+import { sendNotification } from '../../../Twilio/broadcast';
 
 const Broadcast = () => {
   const [subject, setSubject] = useState('');
@@ -70,6 +71,7 @@ const Broadcast = () => {
 
       // Call the broadcast function
       await post(formData)
+      await sendNotification(formData)
       console.log(formData)
 
       // Clear the form
