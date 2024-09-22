@@ -1,18 +1,70 @@
-.navbar {
-  height: 10vh;
-  width: 100vw;
-  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+.p-navbar {
+  height: 15vh;
+  width: 80vw;
+  padding: 0 10vw;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* softer border */
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   z-index: 20;
-  top:0;
-  background-color: white;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* consistent with homepage navbar */
   max-height: 100px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* subtle shadow for depth */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.navbar-buttons {
+.p-navbar:hover {
+  background-color: rgba(0, 0, 0, 0.9); /* darker on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* deeper shadow on hover */
+}
+
+.p-navbar-logo {
+  height: 7.5vh;
+  width: 15vw;
+  max-height: 100px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #ffcc00; /* logo color to match events header */
+  background: url("../../../assets/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transition: transform 0.2s ease;
+}
+
+.p-navbar-logo:hover {
+  transform: scale(1.05); /* slight zoom on hover */
+}
+
+.p-navbar-text {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  color: #e6b800; /* darker shade for less bright text */
+  transition: color 0.2s ease;
+}
+
+.active {
+  background: transparent !important;
+  color: #e6b800; /* consistent with updated text color */
+  border: 1px solid #e6b800; /* updated active border color */
+  transition: border 0.2s ease, color 0.2s ease;
+}
+
+.active:hover {
+  color: #d57c00; /* hover color for active matching the gradient */
+  border-color: #d57c00; /* updated border hover color */
+}
+
+
+.p-navbar-buttons {
   width: fit-content;
   margin: 0;
   height: 15vh;
@@ -22,42 +74,40 @@
   align-items: center;
 }
 
-.navbar-button {
-  background-color: #6d3f63;
+.p-navbar-button {
+  background: linear-gradient(to bottom right, #ff7a59, #ffcc00); /* new color gradient */
   height: fit-content;
   width: fit-content;
   border-radius: 15px;
-  padding: 10px;
+  padding: 10px 20px; /* better padding for a refined look */
   box-sizing: border-box;
   margin: 0 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  font-family: "Open Sans";
-  cursor: pointer;
-  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px; /* slightly larger font */
   font-weight: bold;
-  font-size: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* soft shadow for buttons */
+  transition: transform 0.1s ease-in-out, box-shadow 0.2s ease;
 }
 
-@property --myColorr1 {
-  syntax: '<color>';
-  initial-value: #6d3f63;
-  inherits: false;
+.p-navbar-button:hover {
+  background: linear-gradient(to bottom right, #72c0ff, #ffcc00); /* vibrant hover gradient */
+  transform: scale(1.1); /* gentle scaling effect */
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); /* enhanced shadow on hover */
 }
 
-@property --myColorr2 {
-  syntax: '<color>';
-  initial-value: #b79daf;
-  inherits: false;
+.active {
+  background: transparent !important;
+  color: #ffcc00; /* active color consistent with homepage */
+  border: 1px solid #ffcc00; /* vibrant border color */
+  transition: border 0.2s ease, color 0.2s ease;
 }
 
-.navbar-button {
-  background: linear-gradient(to bottom right, var(--myColorr1), var(--myColorr2));
-  transition: --myColor1 0.2s, --myColor2 0.2s;
-}
-
-.navbar-button:hover {  
-  --myColorr1: #b79daf;
-  --myColorr2: #6d3f63;
+.active:hover {
+  color: #ff7a59; /* hover color matching the gradient */
+  border-color: #ff7a59;
 }
