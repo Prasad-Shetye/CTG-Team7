@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAllEvents } from '../../../providers/eventDataSupabase';
+import Cal from "../CalendarComp/cal";
 
 function Events() {
     const [events, setEvents] = useState([]);
@@ -44,6 +45,7 @@ function Events() {
             ) : (
                 <p>No events found.</p>
             )}
+            <Cal />
         </div>
     );
 }
