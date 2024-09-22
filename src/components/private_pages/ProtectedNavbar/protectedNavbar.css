@@ -81,11 +81,13 @@
 .p-navbar-button {
   background: linear-gradient(to bottom right, var(--myColo1), var(--myColo2));
   transition: --myColo1 0.2s, --myColo2 0.2s;
+  transition: transform 0.1s ease-in-out;
 }
 
 .p-navbar-button:hover {  
   --myColo1: #b79daf;
   --myColo2: #6d3f63;
+  transform: scale(1.1);
 }
 
 .active {

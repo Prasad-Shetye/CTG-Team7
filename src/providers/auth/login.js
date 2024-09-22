@@ -26,12 +26,13 @@ export const signUp = async (email, password, firstname, lastname) => {
   });
 };
 
-export const insertProfile = async (userId, email, fullName, type) => {
+export const insertProfile = async (userId, email, fullName, phonenumber, type) => {
   return await supabase.from("profiles").insert([
     {
       id: userId,
       email: email,
       full_name: fullName,
+      phone_number: phonenumber,
       type: type,
     },
   ]);

@@ -11,6 +11,7 @@ function Login({ handleLogIn }) {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [isLogin, setIsLogin] = useState(true);
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -45,7 +46,7 @@ function Login({ handleLogIn }) {
           navigate("/application");
         }
       } else {
-        if (!firstname || !lastname || !email || !password) {
+        if (!firstname || !lastname || !email || !password || !phoneNumber) {
           console.warn("Please fill in all fields.");
           setDisplayError("Please fill in all fields.");
           return;
@@ -73,6 +74,7 @@ function Login({ handleLogIn }) {
             user.id,
             user.email,
             capitalizeWords(firstname.concat(" ").concat(lastname)),
+            phoneNumber,
             "Community Member"
           );
 
@@ -124,6 +126,16 @@ function Login({ handleLogIn }) {
                   required
                 />
                 <label htmlFor="LastName">Last Name</label>
+              </div>
+              <div className="form-group">
+                <input
+                  type="text"
+                  value={phoneNumber}
+                  id="PhoneNumber"
+                  onChange={(e) => setPhoneNumber(e.target.value)} // Handle phone number input
+                  required
+                />
+                <label htmlFor="PhoneNumber">Phone Number</label>
               </div>
             </>
           )}
