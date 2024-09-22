@@ -1,113 +1,57 @@
-.p-navbar {
-  height: 15vh;
-  width: 80vw;
-  padding: 0 10vw;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* softer border */
+/* Navbar Styles */
+.navbar {
+  height: 10vh;
+  width: 100vw;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   z-index: 20;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.8); /* consistent with homepage navbar */
+  background-color: white;
   max-height: 100px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* subtle shadow for depth */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.p-navbar:hover {
-  background-color: rgba(0, 0, 0, 0.9); /* darker on hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.5); /* deeper shadow on hover */
-}
-
-.p-navbar-logo {
-  height: 7.5vh;
-  width: 15vw;
-  max-height: 100px;
-  margin: 0;
+.navbar-buttons {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-  font-size: 30px;
-  color: #ffcc00; /* logo color to match events header */
-  background: url("../../../assets/logo.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  transition: transform 0.2s ease;
-}
-
-.p-navbar-logo:hover {
-  transform: scale(1.05); /* slight zoom on hover */
-}
-
-.p-navbar-text {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
-  font-size: 25px;
-  color: #e6b800; /* darker shade for less bright text */
-  transition: color 0.2s ease;
-}
-
-.active {
-  background: transparent !important;
-  color: #e6b800; /* consistent with updated text color */
-  border: 1px solid #e6b800; /* updated active border color */
-  transition: border 0.2s ease, color 0.2s ease;
-}
-
-.active:hover {
-  color: #d57c00; /* hover color for active matching the gradient */
-  border-color: #d57c00; /* updated border hover color */
-}
-
-
-.p-navbar-buttons {
-  width: fit-content;
   margin: 0;
   height: 15vh;
   max-height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.p-navbar-button {
-  background: linear-gradient(to bottom right, #ff7a59, #ffcc00); /* new color gradient */
-  height: fit-content;
-  width: fit-content;
+.navbar-button {
+  background: linear-gradient(to bottom right, var(--myColorr1), var(--myColorr2));
   border-radius: 15px;
-  padding: 10px 20px; /* better padding for a refined look */
-  box-sizing: border-box;
+  padding: 10px 20px; /* Added horizontal padding for consistency */
   margin: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-family: "Open Sans", sans-serif;
-  font-size: 14px; /* slightly larger font */
-  font-weight: bold;
-  color: #ffffff;
   cursor: pointer;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* soft shadow for buttons */
-  transition: transform 0.1s ease-in-out, box-shadow 0.2s ease;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+  transition: background-color 0.3s ease; /* Updated transition for smooth effect */
 }
 
-.p-navbar-button:hover {
-  background: linear-gradient(to bottom right, #72c0ff, #ffcc00); /* vibrant hover gradient */
-  transform: scale(1.1); /* gentle scaling effect */
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); /* enhanced shadow on hover */
+@property --myColorr1 {
+  syntax: '<color>';
+  initial-value: #ffcc00; /* Updated color for consistency */
+  inherits: false;
 }
 
-.active {
-  background: transparent !important;
-  color: #ffcc00; /* active color consistent with homepage */
-  border: 1px solid #ffcc00; /* vibrant border color */
-  transition: border 0.2s ease, color 0.2s ease;
+@property --myColorr2 {
+  syntax: '<color>';
+  initial-value: #e6b800; /* Updated color for consistency */
+  inherits: false;
 }
 
-.active:hover {
-  color: #ff7a59; /* hover color matching the gradient */
-  border-color: #ff7a59;
+.navbar-button:hover {
+  --myColorr1: #e6b800; /* Consistent hover color */
+  --myColorr2: #ffcc00; /* Consistent hover color */
 }
+

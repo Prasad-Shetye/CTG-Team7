@@ -2,22 +2,15 @@
   height: 15vh;
   width: 80vw;
   padding: 0 10vw;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* softer border */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   z-index: 20;
   top: 0;
-  background: linear-gradient(to right, #f3f4f9, #e1e4eb); /* subtle gradient for background */
+  background-color: #eaeae8; /* Keep this as your chosen navbar background */
   max-height: 100px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.p-navbar:hover {
-  background: linear-gradient(to right, #e1e4eb, #d0d4d9); /* darker gradient on hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* deeper shadow on hover */
 }
 
 .p-navbar-logo {
@@ -28,27 +21,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans";
   font-weight: 700;
   font-size: 30px;
-  color: #ff7a59;
+  color: #c87c1e; /* Darker, less bright logo color */
   background: url("../../../assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transition: transform 0.2s ease;
-}
-
-.p-navbar-logo:hover {
-  transform: scale(1.05); /* slight zoom on hover */
 }
 
 .p-navbar-text {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans";
   font-weight: 700;
   font-size: 25px;
-  color: #5b445d;
-  transition: color 0.2s ease;
+  color: #d1a900; /* Darker, less bright text color */
 }
 
 .p-navbar-buttons {
@@ -62,53 +49,41 @@
 }
 
 .p-navbar-button {
-  background: linear-gradient(to bottom right, var(--myNewColor1), var(--myNewColor2)); /* new color gradient */
-  height: fit-content;
-  width: fit-content;
+  background: linear-gradient(to bottom right, var(--myColor1), var(--myColor2));
   border-radius: 15px;
-  padding: 10px 20px; /* better padding for a refined look */
-  box-sizing: border-box;
+  padding: 10px;
   margin: 0 10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Open Sans", sans-serif;
-  font-size: 14px; /* slightly larger font */
-  font-weight: bold;
-  color: #ffffff;
+  font-family: "Open Sans";
   cursor: pointer;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* soft shadow for buttons */
-  transition: --myNewColor1 0.2s, --myNewColor2 0.2s, transform 0.1s ease-in-out, box-shadow 0.2s ease;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+  transition: background-color 0.3s ease, transform 0.1s ease-in-out; /* Combined transitions */
 }
 
-.p-navbar-button:hover {
-  --myNewColor1: #72c0ff; /* cool blue tone */
-  --myNewColor2: #ff7a59; /* warm coral tone */
-  transform: scale(1.1); /* gentle scaling effect */
-  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); /* enhanced shadow on hover */
+@property --myColor1 {
+  syntax: '<color>';
+  initial-value: #ffcc00; /* Updated to match your button color */
+  inherits: false;
+}
+
+@property --myColor2 {
+  syntax: '<color>';
+  initial-value: #e6b800; /* Updated to match your button color */
+  inherits: false;
+}
+
+.p-navbar-button:hover {  
+  --myColor1: #e6b800; /* Consistent hover color */
+  --myColor2: #ffcc00; /* Consistent hover color */
+  transform: scale(1.1);
 }
 
 .active {
   background: transparent !important;
-  color: #5b445d;
-  border: 1px solid var(--myNewColor2); /* vibrant border color */
-  transition: border 0.2s ease, color 0.2s ease;
-}
-
-.active:hover {
-  color: #ff7a59; /* hover color matching the gradient */
-  border-color: #ff7a59;
-}
-
-/* New color properties */
-@property --myNewColor1 {
-  syntax: '<color>';
-  initial-value: #ff7a59; /* coral */
-  inherits: false;
-}
-
-@property --myNewColor2 {
-  syntax: '<color>';
-  initial-value: #72c0ff; /* soft blue */
-  inherits: false;
+  color: #d1a900; /* Keep this as your chosen active color, consistent with navbar text */
+  border: 1px solid #d1a900; /* Keep this as your chosen border color */
 }
