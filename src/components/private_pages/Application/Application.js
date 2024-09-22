@@ -38,7 +38,7 @@ function Application({ handleLogOut }) {
   return (
     <div className="Application">
       <ProtectedNavbar handleLogOut={handleLogOut} role={userRole} name={userName} selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
-      {selectedTab === "Cal" && <CalendarComponent />}
+      {selectedTab === "Cal" && <><br /><CalendarComponent /></>}
       {selectedTab === "Events" && <Events userId={userId} />}
       {selectedTab === "Broadcast Message" && <Broadcast />}
       {selectedTab === "Analytics" && <Analytics />}

@@ -6,6 +6,9 @@
     justify-content: center;
     height: fit-content;
     padding: 20px;
+    width: 90%;
+    margin: 5%;
+    color: black;
   }
   
   .broadcast-form-title {

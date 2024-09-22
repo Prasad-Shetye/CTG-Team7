@@ -4,6 +4,7 @@ import { getAIDraft } from '../../../providers/ai/generateBroadcast';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { postEventData } from '../../../providers/eventDataSupabase';
+//import { sendNotification } from '../../../Twilio/broadcast';
 
 const Broadcast = () => {
   const [subject, setSubject] = useState('');
@@ -104,8 +105,8 @@ const Broadcast = () => {
 
   return (
     <div className="broadcast-form-container">
-      <h2 className="broadcast-form-title">Broadcast a Message</h2>
       <form className="broadcast-form" onSubmit={handleSubmit}>
+      <h2 className="broadcast-form-title">Broadcast a Message</h2>
 
         {/* AI Drafting Option */}
         <div className="broadcast-form-ai">

@@ -63,8 +63,10 @@ const HomePage = () => {
     }
 
     {selectedTab === "cal" &&
-
-      <CalendarComponent />
+      <>
+        <br />
+        <CalendarComponent />
+      </>
 
     }
   </div>

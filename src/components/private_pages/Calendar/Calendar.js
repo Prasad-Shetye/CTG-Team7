@@ -1,7 +1,7 @@
 function CalendarComponent() {
 
     return <>
-            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: '100vw', height: "100vh" }}>
                 <iframe 
                     src="https://embed.styledcalendar.com/#N9R2Q4n8EZIqwlnSenB4" 
                     title="Styled Calendar" 

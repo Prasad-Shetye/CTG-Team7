@@ -1,3 +1,4 @@
+/* Login Page Styles */
 .loginpage {
     height: fit-content;
     padding: 20px;
@@ -16,7 +17,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255,135,28,0.8) 0%, rgba(0,0,255,0.6) 100%);
+    background: rgba(0, 0, 0, 0.7); /* Overlay for consistency */
     z-index: 1;
 }
 
@@ -31,21 +32,21 @@
 }
 
 .loginpage-right {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.1); /* Consistent with events container */
     border-radius: 20px;
-    padding: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     width: 90%;
 }
 
 .loginpage-title {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Arial', sans-serif; /* Consistent font */
     font-size: 24px;
-    color: #FF871C;
+    color: #ffcc00; /* Consistent title color */
     font-weight: bold;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .form-container {
@@ -62,7 +63,7 @@
 }
 
 .form-container button {
-    background-color: #FF871C;
+    background-color: #ffcc00; /* Consistent button color */
     color: white;
     border: none;
     padding: 12px;
@@ -73,14 +74,14 @@
 }
 
 .form-container button:hover {
-    background-color: #E67300;
+    background-color: #e6b800; /* Slightly darker on hover */
 }
 
 .login-back {
     margin-top: 20px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Arial', sans-serif; /* Consistent font */
     font-size: 14px;
-    color: #0066cc;
+    color: #ffcc00; /* Consistent link color */
     text-decoration: underline;
     cursor: pointer;
     text-align: center;
