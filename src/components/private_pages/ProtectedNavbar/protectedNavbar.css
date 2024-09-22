@@ -2,15 +2,22 @@
   height: 15vh;
   width: 80vw;
   padding: 0 10vw;
-  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* softer border */
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   z-index: 20;
-  top:0;
-  background-color: #eaeae8;
+  top: 0;
+  background: linear-gradient(to right, #f3f4f9, #e1e4eb); /* subtle gradient for background */
   max-height: 100px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.p-navbar:hover {
+  background: linear-gradient(to right, #e1e4eb, #d0d4d9); /* darker gradient on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* deeper shadow on hover */
 }
 
 .p-navbar-logo {
@@ -21,21 +28,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 30px;
-  color: #ff871c;
+  color: #ff7a59;
   background: url("../../../assets/logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  transition: transform 0.2s ease;
+}
+
+.p-navbar-logo:hover {
+  transform: scale(1.05); /* slight zoom on hover */
 }
 
 .p-navbar-text {
-  font-family: "Open Sans";
+  font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 25px;
-  color: #5b445d
+  color: #5b445d;
+  transition: color 0.2s ease;
 }
 
 .p-navbar-buttons {
@@ -49,49 +62,53 @@
 }
 
 .p-navbar-button {
-  background-color: #6d3f63;
+  background: linear-gradient(to bottom right, var(--myNewColor1), var(--myNewColor2)); /* new color gradient */
   height: fit-content;
   width: fit-content;
   border-radius: 15px;
-  padding: 10px;
+  padding: 10px 20px; /* better padding for a refined look */
   box-sizing: border-box;
   margin: 0 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  font-family: "Open Sans";
-  cursor: pointer;
-  color: #ffffff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px; /* slightly larger font */
   font-weight: bold;
-  font-size: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1); /* soft shadow for buttons */
+  transition: --myNewColor1 0.2s, --myNewColor2 0.2s, transform 0.1s ease-in-out, box-shadow 0.2s ease;
 }
 
-@property --myColo1 {
-  syntax: '<color>';
-  initial-value: #6d3f63;
-  inherits: false;
-}
-
-@property --myColo2 {
-  syntax: '<color>';
-  initial-value: #b79daf;
-  inherits: false;
-}
-
-.p-navbar-button {
-  background: linear-gradient(to bottom right, var(--myColo1), var(--myColo2));
-  transition: --myColo1 0.2s, --myColo2 0.2s;
-  transition: transform 0.1s ease-in-out;
-}
-
-.p-navbar-button:hover {  
-  --myColo1: #b79daf;
-  --myColo2: #6d3f63;
-  transform: scale(1.1);
+.p-navbar-button:hover {
+  --myNewColor1: #72c0ff; /* cool blue tone */
+  --myNewColor2: #ff7a59; /* warm coral tone */
+  transform: scale(1.1); /* gentle scaling effect */
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.2); /* enhanced shadow on hover */
 }
 
 .active {
   background: transparent !important;
   color: #5b445d;
-  border: 1px solid #b79daf;
+  border: 1px solid var(--myNewColor2); /* vibrant border color */
+  transition: border 0.2s ease, color 0.2s ease;
+}
+
+.active:hover {
+  color: #ff7a59; /* hover color matching the gradient */
+  border-color: #ff7a59;
+}
+
+/* New color properties */
+@property --myNewColor1 {
+  syntax: '<color>';
+  initial-value: #ff7a59; /* coral */
+  inherits: false;
+}
+
+@property --myNewColor2 {
+  syntax: '<color>';
+  initial-value: #72c0ff; /* soft blue */
+  inherits: false;
 }
