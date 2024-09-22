@@ -16,7 +16,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7); /* Overlay to make text stand out against background */
+    background: rgba(0, 0, 0, 0.3); /* Overlay to make text stand out against background */
     height: 100%;
   }
   
@@ -46,16 +46,17 @@ body, html {
   }
   
   /* Events Container */
-  .events-container {
-    width: 90%;
-    max-width: 1200px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 40px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-  }
+.events-container {
+  width: 90%;
+  max-width: 1200px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 40px auto; /* Centered with auto left and right margins */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
   
   .events-header h2 {
     font-size: 32px;
@@ -83,7 +84,7 @@ body, html {
   
   .events-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.);
   }
   
   .events-item-subject {
