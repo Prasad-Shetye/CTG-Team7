@@ -1,5 +1,6 @@
 .loginpage {
-    height: 100vh;
+    height: fit-content;
+    padding: 20px;
     width: 100vw;
     overflow: auto;
     background-image: url('https://source.unsplash.com/1600x900/?community');
@@ -32,7 +33,7 @@
 .loginpage-right {
     background-color: rgba(255, 255, 255, 0.9);
     border-radius: 20px;
-    padding: 40px;
+    padding: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 90%;
@@ -40,11 +41,10 @@
 
 .loginpage-title {
     font-family: 'Open Sans', sans-serif;
-    font-size: 36px;
+    font-size: 24px;
     color: #FF871C;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 30px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 

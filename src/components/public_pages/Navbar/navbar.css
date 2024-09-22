@@ -23,8 +23,7 @@
 }
 
 .navbar-button {
-  border: 1px solid #ff871c;
-  background-color: #ff871c;
+  background-color: #6d3f63;
   height: fit-content;
   width: fit-content;
   border-radius: 15px;
@@ -41,24 +40,24 @@
   font-size: 12px;
 }
 
-@property --myColor1 {
+@property --myColorr1 {
   syntax: '<color>';
-  initial-value: #ff3131;
+  initial-value: #6d3f63;
   inherits: false;
 }
 
-@property --myColor2 {
+@property --myColorr2 {
   syntax: '<color>';
-  initial-value: #ff914d;
+  initial-value: #b79daf;
   inherits: false;
 }
 
 .navbar-button {
-  background: linear-gradient(to bottom right, var(--myColor1), var(--myColor2));
+  background: linear-gradient(to bottom right, var(--myColorr1), var(--myColorr2));
   transition: --myColor1 0.2s, --myColor2 0.2s;
 }
 
 .navbar-button:hover {  
-  --myColor1: #ff914d;
-  --myColor2: #ff3131;
+  --myColorr1: #b79daf;
+  --myColorr2: #6d3f63;
 }

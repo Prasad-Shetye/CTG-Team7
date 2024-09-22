@@ -1,0 +1,29 @@
+.events-container {
+    height: fit-content;
+    width: 80%;
+    padding: 0 10%;
+}
+
+.events-unrsvp, .events-rsvp {
+    background-color: green;
+    border-radius: 20px;
+    padding: 5px 40px;
+    color: white;
+    font-size: 15px;
+    width: fit-content;
+    transition: transform 0.1s ease-in-out;
+    cursor: pointer;;
+}
+
+.events-unrsvp, .events-rsvp {
+    transform: scale(1.1);
+}
+
+.events-unrsvp, .events-rsvp {
+    transform: scale(1.1);
+    transform: translateY(1px);
+}
+
+.events-unrsvp{
+    background-color: red;
+}

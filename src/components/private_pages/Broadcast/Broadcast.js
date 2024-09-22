@@ -54,7 +54,7 @@ const Broadcast = () => {
     console.log("Posted to Supabase!")
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitLoading(true)
 
@@ -69,7 +69,7 @@ const Broadcast = () => {
       };
 
       // Call the broadcast function
-      post(formData)
+      await post(formData)
       console.log(formData)
 
       // Clear the form

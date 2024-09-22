@@ -10,18 +10,26 @@ function Navbar() {
   }
 
   return (
-    <div className="navbar">
-      CRP - Team 7
-      <div className="navbar-buttons">
+    <div className="p-navbar">
+    <div className="p-navbar-logo"></div>
+
+    <div className="p-navbar-buttons">
+      <div
+        className={`p-navbar-button`}
+      >
+        Events
+      </div>
+
         <div
           onClick={() => {
             handleClick("login");
           }}
-          className="navbar-button"
+          className="p-navbar-button"
         >
           Log in
         </div>
-      </div>
+    </div>
+
     </div>
       
   );
