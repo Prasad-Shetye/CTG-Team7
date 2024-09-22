@@ -2,6 +2,7 @@
 import React from "react";
 import "./homepage.css";
 import Navbar from "../Navbar/navbar";
+import Cal from "../CalendarComp/cal";
 import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
@@ -19,7 +20,9 @@ const HomePage = () => {
   return <div className="HomePage">
     <Navbar />
     Landing Page
+    <Cal />
   </div>
 };
+
 
 export default HomePage;
