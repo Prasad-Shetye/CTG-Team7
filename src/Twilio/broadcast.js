@@ -1,15 +1,14 @@
-require('dotenv').config();
 const sgMail = require('@sendgrid/mail');
-const client = require('twilio')("AC010b0028f21238f55b9d73887bbc8206", "2fe06ec31fa56adca91d56829e0f54ef");
+const twilio = require('twilio');
 
-// Set the SendGrid API key
-sgMail.setApiKey("SG.q_bbjWz_Qs-sVzLY7z2TMA.T9HZy9jX0snEbbQWQ-sBy1PEQFizmbqP2DsP4Zabbs4");
+const client = twilio("AC010b0028f21238f55b9d73887bbc8206", "2fe06ec31fa56adca91d56829e0f54ef");
 
-// Function to send email
-const sendEmail = async ({ to, subject, text }) => {
+sgMail.setApiKey('SG.q_bbjWz_Qs-sVzLY7z2TMA.T9HZy9jX0snEbbQWQ-sBy1PEQFizmbqP2DsP4Zabbs4');
+
+const sendEmail = async ({subject, text }) => {
   const message = {
-    to,
-    from: 'communitryrestorationproject@gmail.com', //Created Demo Email
+    to: "communitymember417@gmail.com",
+    from: 'communitryrestorationproject@gmail.com',
     subject,
     text
   };
@@ -22,11 +21,10 @@ const sendEmail = async ({ to, subject, text }) => {
   }
 };
 
-// Function to send SMS
-const sendSMS = async ({ to, body }) => {
+const sendSMS = async (body) => {
   const msgOptions = {
     from:"+18556177511", 
-    to,
+    to: "4702225337",
     body
   };
 
@@ -38,7 +36,6 @@ const sendSMS = async ({ to, body }) => {
   }
 };
 
-// Unified method to handle notifications
 const sendNotification = async (formData) => {
   const { subject, subcategories, severity, message, notification_methods, eventDate } = formData;
 
@@ -52,18 +49,14 @@ const sendNotification = async (formData) => {
 
   if (notification_methods.includes('Email')) {
     await sendEmail({
-      to: 'communitymember417@gmail.com', // Created Demo Email
       subject,
       text: notificationText
     });
   }
 
   if (notification_methods.includes('SMS')) {
-    await sendSMS({
-      to: '+14702225337', // Google Voice Recipient
-      body: notificationText
-    });
+    await sendSMS(notificationText);
   }
 };
 
-module.exports = { sendNotification };
+module.exports = { sendSMS, sendNotification };

@@ -1,0 +1,133 @@
+/* homepage.css */
+
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: url('./community-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    height: 100%;
+  }
+  
+  .HomePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Overlay to make text stand out against background */
+    height: 100%;
+  }
+  
+  /* Navbar */
+  .Navbar {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .Navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .Navbar a:hover {
+    color: #ffcc00;
+  }
+  
+  /* Events Container */
+  .events-container {
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 40px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+  }
+  
+  .events-header h2 {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Event List */
+  .events-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .events-item {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff;
+    position: relative;
+  }
+  
+  .events-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .events-item-subject {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .events-item-message {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  .events-item-date {
+    font-size: 18px; /* Increased the font size */
+    font-weight: bold; /* Made the date text bold */
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #ffcc00;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Added a subtle text shadow */
+  }
+  
+  /* Loading and Error */
+  .events-empty {
+    text-align: center;
+    font-size: 18px;
+    color: #ffcc00;
+  }
+  
+  .error {
+    text-align: center;
+    color: red;
+    font-size: 18px;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .events-list {
+      grid-template-columns: 1fr;
+    }
+  
+    .Navbar a {
+      font-size: 16px;
+    }
+  }
+  
