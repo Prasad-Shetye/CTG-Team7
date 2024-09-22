@@ -1,8 +1,10 @@
 .analytics {
-    height: 85dvh;
-    width: 100%;
+    height: fit-content;
+    padding: 40px 0;
+    width: 100vw;
     box-sizing: border-box;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -11,8 +13,8 @@
     box-sizing: border-box;
     width: 90%;
     height: fit-content;
-    margin: 0 2.5%;
-    padding: 20px 2.5%;
+    margin: 0;
+    padding: 0 2.5%;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -28,6 +30,16 @@
     width: 50%; /* Makes the chart smaller */
     height: 200px; /* Sets a fixed height */
     margin: 0 auto; /* Centers the chart */
+}
+
+.attendee {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.attendee-info {
+    margin: 0 20px 0 0;
+    width: 300px;
 }
 
 @media (max-width: 768px) {

@@ -6,15 +6,24 @@ function ProtectedNavbar({ handleLogOut, role, name, selectedTab, setSelectedTab
   return (
     <div className="p-navbar">
       <div className="p-navbar-logo"></div>
+      <div className="p-navbar-text">
+        Welcome, {name}
+      </div>
 
       <div className="p-navbar-buttons">
-        <div
-          onClick={() => setSelectedTab('Events')}
-          className={`p-navbar-button ${selectedTab === 'Events' ? '' : 'active'}`}
-        >
-          Events
-        </div>
-
+      <div
+      onClick={() => setSelectedTab('Events')}
+      className={`p-navbar-button ${selectedTab === 'Events' ? '' : 'active'}`}
+    >
+      Events
+    </div>
+  <div
+      onClick={() => setSelectedTab('Cal')}
+      className={`p-navbar-button ${selectedTab === 'Cal' ? '' : 'active'}`}
+    >
+      Community Calendar
+    </div>
+    
         {role === "Admin" && (
           <>
             <div
@@ -40,9 +49,6 @@ function ProtectedNavbar({ handleLogOut, role, name, selectedTab, setSelectedTab
         </div>
       </div>
 
-      <div className="p-navbar-text">
-        Welcome, {name}
-      </div>
     </div>
   );
 }

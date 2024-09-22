@@ -96,13 +96,13 @@
 
 @property --myColor1 {
   syntax: '<color>';
-  initial-value: #ff3131;
+  initial-value: #6d3f63;
   inherits: false;
 }
 
 @property --myColor2 {
   syntax: '<color>';
-  initial-value: #ff914d;
+  initial-value: #b79daf;
   inherits: false;
 }
 
@@ -128,11 +128,12 @@
 .login_signup form button:hover,
 .login_signup p button:hover,
 .loginpage-right-back:hover {
-  --myColor1: #ff914d;
-  --myColor2: #ff3131;
+  --myColor1: #b79daf;
+  --myColor2: #6d3f63;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 .login_signup p button {
   display: inline-block;

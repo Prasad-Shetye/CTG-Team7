@@ -5,6 +5,7 @@ import { fetchUserRole, fetchUserName } from '../../../providers/fetchUserData';
 import Events from '../Events/Events';
 import Broadcast from '../Broadcast/Broadcast';
 import Analytics from '../Analytics/Analytics';
+import CalendarComponent from '../Calendar/Calendar.js';
 
 function Application({ handleLogOut }) {
   const [userId, setUserId] = useState(null);
@@ -37,6 +38,7 @@ function Application({ handleLogOut }) {
   return (
     <div className="Application">
       <ProtectedNavbar handleLogOut={handleLogOut} role={userRole} name={userName} selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
+      {selectedTab === "Cal" && <CalendarComponent />}
       {selectedTab === "Events" && <Events userId={userId} />}
       {selectedTab === "Broadcast Message" && <Broadcast />}
       {selectedTab === "Analytics" && <Analytics />}

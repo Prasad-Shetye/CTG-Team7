@@ -1,21 +1,21 @@
 .p-navbar {
-  height: 15vh;
-  width: 80vw;
-  padding: 0 10vw;
+  height: fit-content;
+  min-height: 15vh;
+  width: 100vw;
   border-bottom: 1px solid rgb(0, 0, 0, 0.2);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: sticky;
   z-index: 20;
   top:0;
   background-color: #eaeae8;
-  max-height: 100px;
+  flex-wrap: wrap;
 }
 
 .p-navbar-logo {
-  height: 7.5vh;
-  width: 15vw;
+  height: 15vh;
+  width: 100px;
   max-height: 100px;
   margin: 0;
   display: flex;
@@ -33,19 +33,24 @@
 
 .p-navbar-text {
   font-family: "Open Sans";
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 18px;
   color: #5b445d
 }
 
 .p-navbar-buttons {
   width: fit-content;
-  margin: 0;
+  margin: 0 10px 0 0;
   height: 15vh;
   max-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .p-navbar-button {

@@ -145,3 +145,40 @@ export const fetchRSVPCounts = async () => {
     return [];
   }
 };
+
+
+export const fetchUserIdsByEvent = async (eventId) => {
+  try {
+    const { data, error } = await supabase
+      .from('event_user')  // Replace with the actual table for attendees
+      .select('user_id')
+      .eq('event_id', eventId);
+
+    if (error) {
+      throw error;
+    }
+
+    return data.map(item => item.user_id); // Return an array of user IDs
+  } catch (error) {
+    console.error('Error fetching user IDs:', error.message);
+    return [];
+  }
+};
+
+export const fetchUserDetails = async (userIds) => {
+  try {
+    const { data, error } = await supabase
+      .from('profiles')  // Replace with your actual users table
+      .select('*')
+      .in('id', userIds); // Assuming 'id' is the user ID column
+
+    if (error) {
+      throw error;
+    }
+
+    return data; // Return an array of user details
+  } catch (error) {
+    console.error('Error fetching user details:', error.message);
+    return [];
+  }
+};

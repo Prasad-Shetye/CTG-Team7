@@ -51,6 +51,23 @@ const Broadcast = () => {
 
   async function post(formData) {
     await postEventData(formData);
+
+
+    try {
+      const response = await fetch('http://localhost:8000/notify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error sending notification:', error);
+    }
+
     console.log("Posted to Supabase!")
   }
 
@@ -65,7 +82,7 @@ const Broadcast = () => {
         severity,
         message,
         notification_methods: notifyMethods,
-        eventDate: eventDate.toISOString().split('T')[0] 
+        eventDate: eventDate.toISOString().split('T')[0]
       };
 
       // Call the broadcast function
@@ -90,26 +107,26 @@ const Broadcast = () => {
       <h2 className="broadcast-form-title">Broadcast a Message</h2>
       <form className="broadcast-form" onSubmit={handleSubmit}>
 
-            {/* AI Drafting Option */}
-            <div className="broadcast-form-ai">
-            <label>Use AI to draft message:</label>
-            <br />
-            <br />
-            <input
-              type="text"
-              className="broadcast-form-input"
-              placeholder="Enter a brief prompt for AI"
-              value={aiPrompt}
-              onChange={(e) => setAiPrompt(e.target.value)}
-            />
-            <br />
-            <br />
-            <button type="button" className="broadcast-form-button" onClick={handleAIDraft}>
-              {draftLoading ? "Loading Draft": "Draft with AI"}
-            </button>
-          </div>
+        {/* AI Drafting Option */}
+        <div className="broadcast-form-ai">
+          <label>Use AI to draft message:</label>
           <br />
-          <br />  
+          <br />
+          <input
+            type="text"
+            className="broadcast-form-input"
+            placeholder="Enter a brief prompt for AI"
+            value={aiPrompt}
+            onChange={(e) => setAiPrompt(e.target.value)}
+          />
+          <br />
+          <br />
+          <button type="button" className="broadcast-form-button" onClick={handleAIDraft}>
+            {draftLoading ? "Loading Draft" : "Draft with AI"}
+          </button>
+        </div>
+        <br />
+        <br />
         {/* Subject Input */}
         <label>Subject:</label>
         <br />
@@ -129,7 +146,7 @@ const Broadcast = () => {
           <label>Select Subcategory:</label>
           <br />
           <br />
-            <div className="broadcast-form-checkboxes">
+          <div className="broadcast-form-checkboxes">
             {subcategoryOptions.map((option) => (
               <label key={option}>
                 <input
@@ -151,7 +168,7 @@ const Broadcast = () => {
           <label>Importance:</label>
           <br />
           <br />
-            <div>
+          <div>
             <label>
               <input
                 type="radio"
@@ -190,27 +207,27 @@ const Broadcast = () => {
         <br />
         <br />
 
-                {/* Broadcast Date Picker */}
-                <div className="broadcast-form-date">
-                <label>Event Date (Required):</label>
-                <br /><br />
-                <DatePicker
-                  selected={eventDate}
-                  onChange={(date) => setEventDate(date)}
-                  dateFormat="yyyy-MM-dd"
-                  className="broadcast-form-input"
-                  placeholderText="Select a date"
-                  required
-                />
-              </div>
-            <br /><br />
-      
+        {/* Broadcast Date Picker */}
+        <div className="broadcast-form-date">
+          <label>Event Date (Required):</label>
+          <br /><br />
+          <DatePicker
+            selected={eventDate}
+            onChange={(date) => setEventDate(date)}
+            dateFormat="yyyy-MM-dd"
+            className="broadcast-form-input"
+            placeholderText="Select a date"
+            required
+          />
+        </div>
+        <br /><br />
+
         {/* Notification Methods (Multiple Selection) */}
         <div className="broadcast-form-notify">
           <label>Notify People Via:</label>
           <br />
           <br />
-            <div className="broadcast-form-checkboxes">
+          <div className="broadcast-form-checkboxes">
             <label>
               <input
                 type="checkbox"
@@ -236,17 +253,17 @@ const Broadcast = () => {
         <br />
 
         <div className="broadcast-preview">
-        <h3>Message Preview</h3>
-        <p><strong>Subject:</strong> {subject || 'No subject entered'}</p>
-        <p><strong>Subcategory:</strong> {subcategory.length > 0 ? subcategory.join(', ') : 'No subcategory selected'}</p>
-        <p><strong>Importance:</strong> {severity || 'No importance selected'}</p>
-        <p><strong>Message:</strong> {message || 'No message entered'}</p>
-        <p><strong>Event Date:</strong> {eventDate?.toISOString().split('T')[0]  || 'No date selected'}</p>
-        <p><strong>Notify Via:</strong> {notifyMethods.length > 0 ? notifyMethods.join(', ') : 'No notification methods selected'}</p>
-      </div>
+          <h3>Message Preview</h3>
+          <p><strong>Subject:</strong> {subject || 'No subject entered'}</p>
+          <p><strong>Subcategory:</strong> {subcategory.length > 0 ? subcategory.join(', ') : 'No subcategory selected'}</p>
+          <p><strong>Importance:</strong> {severity || 'No importance selected'}</p>
+          <p><strong>Message:</strong> {message || 'No message entered'}</p>
+          <p><strong>Event Date:</strong> {eventDate?.toISOString().split('T')[0] || 'No date selected'}</p>
+          <p><strong>Notify Via:</strong> {notifyMethods.length > 0 ? notifyMethods.join(', ') : 'No notification methods selected'}</p>
+        </div>
 
-      <br />
-      <br />
+        <br />
+        <br />
         <button type="submit" className="broadcast-form-button">
           {submitLoading ? "Broadcasting..." : "Broadcast Message"}
         </button>
