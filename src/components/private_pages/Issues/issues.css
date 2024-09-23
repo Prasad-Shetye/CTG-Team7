@@ -1,0 +1,71 @@
+.issues-container {
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 40px auto;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    color: #fff;
+  }
+  
+  .issues-title {
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffcc00;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .issues-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .issue-item {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff;
+    position: relative;
+  }
+  
+  .issue-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.);
+  }
+  
+  .issue-email,
+  .issue-message,
+  .issue-date {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  
+  .issue-date {
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #ffcc00;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+  }
+  
+  .issues-loading,
+  .issues-empty {
+    text-align: center;
+    font-size: 18px;
+    color: #ffcc00;
+  }
+  
+  @media (max-width: 768px) {
+    .issues-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
