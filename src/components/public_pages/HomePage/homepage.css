@@ -16,7 +16,8 @@ body, html {
     flex-direction: column;
     align-items: center;
     background: rgba(0, 0, 0, 0.7); /* Overlay to make text stand out against background */
-    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
     width: fit-content;
   }
   

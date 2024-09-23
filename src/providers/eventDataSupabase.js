@@ -182,3 +182,51 @@ export const fetchUserDetails = async (userIds) => {
     return [];
   }
 };
+
+// Function to add an email and message to the 'issues' table
+export const addIssue = async (email, message) => {
+  try {
+    // Insert email and message into the 'issues' table
+    const { data, error } = await supabase
+      .from('issues')
+      .insert([{
+        email: email,
+        message: message
+      }]);
+
+    // Check for errors
+    if (error) {
+      throw error;
+    }
+
+    // Log success and return inserted data
+    console.log('Issue added:', data);
+    return data;
+  } catch (error) {
+    console.error('Error adding issue:', error.message);
+    return null;
+  }
+};
+
+// Function to fetch all issues in chronological order
+export const fetchAllIssues = async () => {
+  try {
+    // Fetch all rows from the 'issues' table, ordered by 'created_at' in ascending order
+    const { data, error } = await supabase
+      .from('issues')
+      .select('*')
+      .order('created_at', { ascending: true }); // Change to false for descending order (newest first)
+
+    // Check for errors
+    if (error) {
+      throw error;
+    }
+
+    // Log and return the fetched data
+    console.log('Fetched issues:', data);
+    return data;
+  } catch (error) {
+    console.error('Error fetching issues:', error.message);
+    return [];
+  }
+};

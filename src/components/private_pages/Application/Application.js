@@ -7,6 +7,8 @@ import Broadcast from '../Broadcast/Broadcast';
 import Analytics from '../Analytics/Analytics';
 import CalendarComponent from '../Calendar/Calendar.js';
 import { FiMessageCircle } from 'react-icons/fi'; // Adding an icon for feedback button
+import { addIssue } from '../../../providers/eventDataSupabase.js';
+import Issues from '../Issues/Issues.js';
 
 function Application({ handleLogOut }) {
   const [userId, setUserId] = useState(null);
@@ -39,8 +41,9 @@ function Application({ handleLogOut }) {
     }
   }, [userId])
 
-  const submitFeedback = () => {
-    console.log('Feedback submitted:', { feedback, userEmail });
+  async function submitFeedback() {
+    await addIssue(feedback, userEmail);
+    alert("Issue has been added! You should be contacted via email/sms soon. Thank you!")
     setFeedbackVisible(false);
     setFeedback(""); // Reset feedback field
     setUserEmail(""); // Reset email field
@@ -54,41 +57,47 @@ function Application({ handleLogOut }) {
       {selectedTab === "Events" && <Events userId={userId} />}
       {selectedTab === "Broadcast Message" && <Broadcast />}
       {selectedTab === "Analytics" && <Analytics />}
-      {/* Floating Feedback Button */}
-      <button 
-        className="feedback-button"
-        onClick={() => setFeedbackVisible(!feedbackVisible)}
-      >
-        Feedback
-      </button>
+      {selectedTab === "Issues" && <Issues />}
 
-      {/* Floating Feedback Button */}
-      <button 
-        className="feedback-button"
-        onClick={() => setFeedbackVisible(!feedbackVisible)}
-      >
-        <FiMessageCircle size={20} />
-        Issues?
-      </button>
+      {userRole === "Community Member" && 
+        <>
+          {/* Floating Feedback Button */}
+          <button 
+            className="feedback-button"
+            onClick={() => setFeedbackVisible(!feedbackVisible)}
+          >
+            Feedback
+          </button>
 
-      {/* Feedback Popup */}
-      {feedbackVisible && (
-        <div className="feedback-popup">
-          <h3>We would love to address your issues!</h3>
-          <input 
-            type="text"
-            value={userEmail}
-            onChange={(e) => setUserEmail(e.target.value)}
-            placeholder="Your email (optional)"
-          />
-          <textarea 
-            value={feedback}
-            onChange={(e) => setFeedback(e.target.value)}
-            placeholder="Share your issues here..."
-          />
-          <button onClick={submitFeedback}>Submit</button>
-        </div>
-      )}
+          {/* Floating Feedback Button */}
+          <button 
+            className="feedback-button"
+            onClick={() => setFeedbackVisible(!feedbackVisible)}
+          >
+            <FiMessageCircle size={20} />
+            Issues?
+          </button>
+
+          {/* Feedback Popup */}
+          {feedbackVisible && (
+            <div className="feedback-popup">
+              <h3>We would love to address your issues!</h3>
+              <input 
+                type="text"
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
+                placeholder="Your email (optional)"
+              />
+              <textarea 
+                value={feedback}
+                onChange={(e) => setFeedback(e.target.value)}
+                placeholder="Share your issues here..."
+              />
+              <button onClick={submitFeedback}>Submit</button>
+            </div>
+          )}
+        </>
+      }
     </div>
   );
 }

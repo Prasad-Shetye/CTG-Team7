@@ -38,6 +38,12 @@ function ProtectedNavbar({ handleLogOut, role, name, selectedTab, setSelectedTab
             >
               Broadcast Message
             </div>
+            <div
+              onClick={() => setSelectedTab('Issues')}
+              className={`p-navbar-button ${selectedTab === 'Issues' ? '' : 'active'}`}
+            >
+              Issues
+            </div>
           </>
         )}
 
