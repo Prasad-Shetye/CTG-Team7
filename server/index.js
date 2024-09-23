@@ -9,11 +9,11 @@ app.use(express.json());
 app.use(cors());
 
 // Set up SendGrid
-sgMail.setApiKey('SG.q_bbjWz_Qs-sVzLY7z2TMA.T9HZy9jX0snEbbQWQ-sBy1PEQFizmbqP2DsP4Zabbs4');
+sgMail.setApiKey('');
 
 // Set up Twilio
-const accountSid = 'AC010b0028f21238f55b9d73887bbc8206';
-const authToken = '2fe06ec31fa56adca91d56829e0f54ef';
+const accountSid = '';
+const authToken = '';
 const client = twilio(accountSid, authToken);
 
 // Function to send email
@@ -36,7 +36,7 @@ const sendEmail = async ({ to, subject, text }) => {
 // Function to send SMS
 const sendSMS = async ({ to, body }) => {
     const msgOptions = {
-        from: "+18556177511",
+        from: "+18339592539",
         to,
         body
     };

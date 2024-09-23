@@ -9,7 +9,7 @@ import CalendarComponent from "../../private_pages/Calendar/Calendar.js";
 const HomePage = () => {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState(null);
-  const [selectedTab, setSelectedTab] = useState("cal"); // State for selected tab
+  const [selectedTab, setSelectedTab] = useState("events"); // State for selected tab
 
   useEffect(() => {
     const getEvents = async () => {

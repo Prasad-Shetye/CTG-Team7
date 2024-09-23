@@ -20,16 +20,16 @@ function Navbar({ selectedTab, setSelectedTab }) {
 
       <div className="p-navbar-buttons">
         <div
-          onClick={() => handleClick("calendar", "cal")}
-          className={`p-navbar-button ${selectedTab === "cal" ? "" : "active"}`}
-        >
-          Community Calendar
-        </div>
-        <div
           onClick={() => handleClick("events", "events")}
           className={`p-navbar-button ${selectedTab === "events" ? "" : "active"}`}
         >
           Events
+        </div>
+        <div
+          onClick={() => handleClick("calendar", "cal")}
+          className={`p-navbar-button ${selectedTab === "cal" ? "" : "active"}`}
+        >
+          Community Calendar
         </div>
 
         <div
