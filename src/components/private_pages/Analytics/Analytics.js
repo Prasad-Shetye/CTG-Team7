@@ -35,6 +35,10 @@ function Analytics() {
         getRsvpData();
     }, []);
 
+    const truncate = (str, maxLength) => {
+        return str.length > maxLength ? `${str.substring(0, maxLength)}...` : str;
+    };
+
     if (loading) {
         return <div>Loading...</div>;
     }
@@ -50,7 +54,11 @@ function Analytics() {
                 <ResponsiveContainer className="analytics-chart" height={250}>
                     <BarChart data={rsvpData}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="subject" />
+                        <XAxis 
+                            dataKey="subject"
+                            interval={0}
+                            tickFormatter={(subject) => truncate(subject, 10)} // Truncate to 10 characters
+                        />
                         <YAxis />
                         <Tooltip />
                         <Bar dataKey="rsvp_count" fill="#8884d8" />
