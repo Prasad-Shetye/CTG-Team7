@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchAllIssues } from '../../../providers/eventDataSupabase';
+import "./issues.css";
 
 const Issues = () => {
   const [issues, setIssues] = useState([]);
@@ -29,10 +30,10 @@ const Issues = () => {
           {issues.map((issue) => (
             <div key={issue.id} className="issue-item">
               <div className="issue-email">
-                <strong>Email:</strong> {issue.email}
+                <strong>Message:</strong> {issue.email}
               </div>
               <div className="issue-message">
-                <strong>Message:</strong> {issue.message}
+                <strong>Email:</strong> {issue.message}
               </div>
               <div className="issue-date">
                 <strong>Date Submitted:</strong> {new Date(issue.created_at).toLocaleString()}
