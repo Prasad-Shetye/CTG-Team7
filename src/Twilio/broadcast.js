@@ -1,9 +1,9 @@
 const sgMail = require('@sendgrid/mail');
 const twilio = require('twilio');
 
-const client = twilio("AC010b0028f21238f55b9d73887bbc8206", "2fe06ec31fa56adca91d56829e0f54ef");
+const client = twilio(process.env.SID, process.env.authToken);
 
-sgMail.setApiKey('SG.q_bbjWz_Qs-sVzLY7z2TMA.T9HZy9jX0snEbbQWQ-sBy1PEQFizmbqP2DsP4Zabbs4');
+sgMail.setApiKey(process.env.sendGrid);
 
 const sendEmail = async ({subject, text }) => {
   const message = {
@@ -23,7 +23,7 @@ const sendEmail = async ({subject, text }) => {
 
 const sendSMS = async (body) => {
   const msgOptions = {
-    from:"+18556177511", 
+    from:"+18339592539", 
     to: "4702225337",
     body
   };
